@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Random Image Generator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body><br><br><br>
+        <img alt="" id="img" style="width: 30%; height: 30%; margin-left: 35%; display: block;"><br>
+        <form id="form">
+            <center>
+                <input type="submit" value="Generate">
+                <p id="hint" style="display: none;">or press the space bar/enter key</p>
+            </center>
+        </form>
+        <script>
+            var form = document.getElementById('form');
+            var counter = 0;
+            var width = Math.floor(Math.random() * 600) + 300;
+
+                var url = 'https://picsum.photos/' + width;
+
+                var img = document.getElementById('img');
+                img.src = url;
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                counter++;
+                if (counter == 1) {
+                    document.getElementById('hint').style.display = 'block';
+                }
+                if (counter == 4) {
+                    document.getElementById('hint').style.display = 'none';
+                }
+                var width = Math.floor(Math.random() * 600) + 300;
+
+                var url = 'https://picsum.photos/' + width;
+
+                var img = document.getElementById('img');
+                img.src = url;
+            });
+        </script>
+    </body>
